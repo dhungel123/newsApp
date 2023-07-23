@@ -1,3 +1,5 @@
+// data ko representation
+
 class NewsModel {
   NewsModel({
       this.status, 
