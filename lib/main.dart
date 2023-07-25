@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:news_app/feature/news/presentation/all_news_page.dart';
 import 'package:news_app/feature/news/presentation/news_page.dart';
 
 void main(){
@@ -12,7 +13,11 @@ class MyApp extends StatelessWidget{
   Widget build(BuildContext context){
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: NewsPage(),
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        useMaterial3: true,
+      ),
+      home: AllNewsPage()
     );
   }
 }
