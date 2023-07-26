@@ -36,7 +36,7 @@ class AllNewsPage extends StatelessWidget {
               child: TabBarView(
                   children:[
                     NewsPage(),
-                EntertainmentNews(),
+
 
                 Center(child: Text('Entertainment News yeta auacha')),
                 Center(child: Text('Sports News yeta auacha')),
