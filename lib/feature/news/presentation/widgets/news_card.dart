@@ -4,14 +4,24 @@ import '../../data/date_time_formated.dart';
 import '../../data/news_model.dart';
 
 class NewsCard extends StatelessWidget {
-  const NewsCard({Key? key, this.news}) : super(key: key);
+  const NewsCard({Key? key, required this.news, required this.fromNewsDetails}) : super(key: key);
   final Articles? news;
+  final bool fromNewsDetails;
+
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 12,top: 12,bottom: 12,right: 12),
-      child: Column(
+      padding: const EdgeInsets.all(8),
+      child: fromNewsDetails? newsCardWidget(): Card(
+        child: newsCardWidget()
+      ),
+    );
+  }
+  newsCardWidget(){
+   return Padding(
+     padding: const EdgeInsets.all(16.0),
+     child: Column(
         children: [
 
           RichText(
@@ -38,6 +48,7 @@ class NewsCard extends StatelessWidget {
             ),
           ),
           SizedBox(height: 12,),
+          fromNewsDetails ? SizedBox.shrink() :
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -51,6 +62,7 @@ class NewsCard extends StatelessWidget {
 
         ],
       ),
-    );
+   );
+
   }
 }

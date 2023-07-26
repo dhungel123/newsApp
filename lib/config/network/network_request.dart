@@ -17,6 +17,12 @@ class NetworkRequest{
     // print('server response code :${response.statusCode}');
     return NewsModel.fromJson(response.data).articles;
   }
+  // Future<List<Articles>?> getEntertainmentNews() async {
+  //   final response= await dio.get(AppUrls.apiEntertainment);
+  //   // print('server response data :${response.data['articles']}');
+  //   // print('server response code :${response.statusCode}');
+  //   return NewsModel.fromJson(response.data).articles;
+  // }
 
 
 }
