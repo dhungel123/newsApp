@@ -1,10 +1,11 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 import '../../data/date_time_formated.dart';
 import '../../data/news_model.dart';
 
 class NewsCard extends StatelessWidget {
-  const NewsCard({Key? key, required this.news, required this.fromNewsDetails}) : super(key: key);
+  NewsCard({Key? key, required this.news, required this.fromNewsDetails}) : super(key: key);
   final Articles? news;
   final bool fromNewsDetails;
 
@@ -36,7 +37,13 @@ class NewsCard extends StatelessWidget {
           SizedBox(
             height: 12,
           ),
-          Image.network(news?.urlToImage ?? ''),
+          CachedNetworkImage(
+              imageUrl: news?.urlToImage ?? '',
+            placeholder: (context,url)=>CircularProgressIndicator(),
+            errorWidget: (context,url,error)=>Icon(Icons.error),
+          ),
+
+         // Image.network(news?.urlToImage ?? ''),
           SizedBox(height: 12,),
           RichText(
             text: TextSpan(
@@ -49,15 +56,24 @@ class NewsCard extends StatelessWidget {
           ),
           SizedBox(height: 12,),
           fromNewsDetails ? SizedBox.shrink() :
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text("${news?.author}",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold),),
-              Text("${DateTimeFormated.convertDateTime(news?.publishedAt ?? '')}",style: TextStyle(color: Colors.black),)
+
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Container(
+                  height: 50,
+                  width: 50,
+                  child: Text("${news?.author}",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold),
+                    overflow: TextOverflow.fade,),
+                ),
+                Text("${DateTimeFormated.convertDateTime(news?.publishedAt ?? '')}",
+                  style: TextStyle(color: Colors.black),
+                overflow: TextOverflow.ellipsis,)
 
 
-            ],
-          )
+              ],
+            ),
+
 
 
         ],

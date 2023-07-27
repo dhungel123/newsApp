@@ -19,7 +19,7 @@ class NewsDetails extends StatelessWidget {
         title: Text(news?.title ?? '',
         maxLines: 2,
         overflow: TextOverflow.ellipsis,
-        style: TextStyle(fontSize:12.0,color: Colors.white),),),
+        style: TextStyle(fontSize:16.0,color: Colors.white),),),
       body: ListView(
         children: [
           NewsCard(news: news,fromNewsDetails: true,),

@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:news_app/feature/news/presentation/all_news_page.dart';
-import 'package:news_app/feature/news/presentation/news_page.dart';
+import 'package:news_app/feature/news/presentation/pages/news_page.dart';
 
 void main(){
   runApp(MyApp());

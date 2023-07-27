@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/feature/news/presentation/entertainment_news.dart';
-import 'package:news_app/feature/news/presentation/news_page.dart';
+import 'package:news_app/feature/news/presentation/pages/entertainment_news.dart';
+import 'package:news_app/feature/news/presentation/pages/news_page.dart';
+import 'package:news_app/feature/news/presentation/pages/sports_page.dart';
 //git remote set-url origin https://github.com/dhungel123/newsApp.git
 //$ ssh-keygen -t rsa -b 4096 -C "dhungelujjwal441@gmail.com"
 class AllNewsPage extends StatelessWidget {
@@ -36,10 +37,9 @@ class AllNewsPage extends StatelessWidget {
               child: TabBarView(
                   children:[
                     NewsPage(),
+                    EntertainmentNews(),
 
-
-                Center(child: Text('Entertainment News yeta auacha')),
-                Center(child: Text('Sports News yeta auacha')),
+                SportsPage(),
 
 
               ] ),

@@ -53,7 +53,8 @@ class _NewsPageState extends State<NewsPage> {
                             newsList: snapshot.data,
                           )));
                         },
-                          child: NewsCard(news:news,fromNewsDetails: false,));
+                          child: NewsCard(news:news,fromNewsDetails: false,)
+                      );
                     },
 
                   );

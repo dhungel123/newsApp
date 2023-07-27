@@ -1,7 +1,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:news_app/config/network/network_request.dart';
-import 'package:news_app/feature/news/data/date_time_formated.dart';
 import 'package:news_app/feature/news/data/news_model.dart';
 import 'package:news_app/feature/news/presentation/news_details.dart';
 import 'package:news_app/feature/news/presentation/widgets/news_card.dart';
@@ -27,7 +26,7 @@ class _EntertainmentNewsState extends State<EntertainmentNews> {
   Widget build(BuildContext context) {
     return RefreshIndicator(
       onRefresh: () async {
-        await network.getTopNews();
+        await network.getEntertainmentNews();
       },
       child: ListView(
         padding: EdgeInsets.symmetric(horizontal: 12, vertical: 12),
@@ -36,7 +35,7 @@ class _EntertainmentNewsState extends State<EntertainmentNews> {
 
           FutureBuilder<List<Articles>?>(
             // We call the method that actually brings data from the server
-              future: network.getTopNews(),
+              future: network.getEntertainmentNews(),
               // in shapshort we get the data what we passed in the FutureBuilder
               builder: (context, snapshot) {
                 if (snapshot.hasData) {
@@ -52,9 +51,13 @@ class _EntertainmentNewsState extends State<EntertainmentNews> {
                                 builder: (context) =>
                                     NewsDetails(
                                       news: news,
+                                      newsList: snapshot.data,
                                     )));
                           },
-                          child: NewsCard(news: news,fromNewsDetails: false,));
+                          child: NewsCard(news: news, fromNewsDetails:false,
+
+                          )
+                      );
                     },
 
                   );
