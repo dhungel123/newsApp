@@ -37,9 +37,10 @@ class AllNewsPage extends StatelessWidget {
               child: TabBarView(
                   children:[
                     NewsPage(),
+
                     EntertainmentNews(),
 
-                SportsPage(),
+                    SportsPage(),
 
 
               ] ),

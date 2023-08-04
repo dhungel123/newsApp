@@ -1,6 +1,7 @@
-package com.broadwayinfosys.news_app
+package flutter.ujwol.my_news
 
 import io.flutter.embedding.android.FlutterActivity
 
 class MainActivity: FlutterActivity() {
+
 }

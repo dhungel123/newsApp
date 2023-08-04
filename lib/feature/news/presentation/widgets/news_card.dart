@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 import '../../data/date_time_formated.dart';
+
 import '../../data/news_model.dart';
 
 class NewsCard extends StatelessWidget {
@@ -24,14 +25,12 @@ class NewsCard extends StatelessWidget {
      padding: const EdgeInsets.all(16.0),
      child: Column(
         children: [
-
           RichText(
             text: TextSpan(
                 style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 16),
                 children: [
                   //    TextSpan(text: "News Title ",style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold,color: Colors.red)),
                   TextSpan(text:' ${news?.title}'),
-
                 ]
             ),),
           SizedBox(
@@ -69,16 +68,10 @@ class NewsCard extends StatelessWidget {
                 Text("${DateTimeFormated.convertDateTime(news?.publishedAt ?? '')}",
                   style: TextStyle(color: Colors.black),
                 overflow: TextOverflow.ellipsis,)
-
-
               ],
             ),
-
-
-
         ],
       ),
    );
-
   }
 }

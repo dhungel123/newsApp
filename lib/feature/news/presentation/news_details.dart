@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/feature/news/data/news_model.dart';
 import 'package:news_app/feature/news/presentation/widgets/news_card.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class NewsDetails extends StatelessWidget {
   const NewsDetails({Key? key, this.news, this.newsList}) : super(key: key);
@@ -34,7 +35,15 @@ class NewsDetails extends StatelessWidget {
                 Text(news?.content ?? ''),
                 SizedBox(height: 8,),
 
-                Text('See more:\n${news?.url}',style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold,color: Colors.blue),),
+                InkWell(
+                  onTap: (){
+                     String? url=news?.url;
+                     callingMethod(url!);
+
+
+                  },
+
+                    child: Text('See more:\n${news?.url}',style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold,color: Colors.blue),)),
 
                 SizedBox(height: 8,),
 
@@ -68,5 +77,10 @@ class NewsDetails extends StatelessWidget {
         ],
       ),
     );
+  }
+  Future<void> callingMethod(String url) async {
+  if (!await launchUrl(Uri.parse(url))) {
+  throw Exception('Could not launch $url');
+  }
   }
 }

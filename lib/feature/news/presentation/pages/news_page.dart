@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/config/network/network_request.dart';
-import 'package:news_app/feature/news/data/date_time_formated.dart';
 import 'package:news_app/feature/news/data/news_model.dart';
 import 'package:news_app/feature/news/presentation/news_details.dart';
 import 'package:news_app/feature/news/presentation/widgets/news_card.dart';
@@ -58,26 +57,18 @@ class _NewsPageState extends State<NewsPage> {
                     },
 
                   );
-
-
                 }
-
                 else if(snapshot.hasError){
                   print("Error:${snapshot.error}");
                   return Center(child: Text("Error:${snapshot.error}"),);
-
                 }
-
                 else{
                   return Center(child: CircularProgressIndicator());
                 }
-
               }
           )
         ],
       ),
     );
-
-
   }
 }
