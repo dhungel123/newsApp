@@ -3,7 +3,7 @@ import 'package:icons_flutter/icons_flutter.dart';
 import 'package:news_app/feature/auth/domain/login_controller.dart';
 
 class LoginPage extends StatefulWidget {
-  const LoginPage({Key? key}) : super(key: key);
+  const   LoginPage({Key? key}) : super(key: key);
 
   @override
   State<LoginPage> createState() => _LoginPageState();
@@ -35,6 +35,23 @@ class _LoginPageState extends State<LoginPage> {
                       }, icon:Icon(FlutterIcons.google_ant)
                   ),
                   Text("continue with Google")
+                ],
+              ),
+
+            ),
+
+            ElevatedButton(
+              onPressed: () {  },
+              child: Row(
+                children: [
+                  IconButton(
+                      onPressed: (){
+                        LoginController.goToFacebookLogin(context);
+
+
+                      }, icon:Icon(FlutterIcons.facebook_ent)
+                  ),
+                  Text("continue with Facebook")
                 ],
               ),
 
