@@ -1,10 +1,7 @@
 
 import 'package:flutter/material.dart';
-
-//import '../flutter_three/presentation/tabs_example.dart';
-// import '../shop/presentation/new_shop.dart';
-// import '../shop/presentation/shop_page.dart';
-
+import 'package:news_app/feature/news/presentation/all_news_page.dart';
+import 'package:news_app/feature/profile/presentation/profile_page.dart';
 
 class DashboardOne extends StatefulWidget {
   const DashboardOne({super.key});
@@ -18,10 +15,10 @@ class _DashboardState extends State<DashboardOne> {
   int _currentIndex = 0;
 
   final List<Widget> _pages = [
-    HomePage(),
-    ShopPage(),
-    CartPage(),
-    //ProfilePage(),
+
+    AllNewsPage(),
+    FollowingPage(),
+    ProfilePage(name: 'Ujjwal Dhungel', email: 'ujwol@gmail.com', photoUrl: 'https://ae01.alicdn.com/kf/HTB1vA37KFXXXXaIXFXXxh4dFXXXz/2016-new-custom-made-blue-male-designer-suits-men-and-men-suit-3-suit-jacket-pants.jpeg')
   ];
 
 
@@ -34,16 +31,12 @@ class _DashboardState extends State<DashboardOne> {
         type: BottomNavigationBarType.fixed,
         items: const [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
+            icon: Icon(Icons.newspaper),
+            label: 'Headlines',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_cart),
-            label: 'Shop',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_basket),
-            label: 'Cart',
+            icon: Icon(Icons.star),
+            label: 'Following',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person),
@@ -62,57 +55,17 @@ class _DashboardState extends State<DashboardOne> {
     );
   }
 }
+class FollowingPage extends StatelessWidget{
+  const FollowingPage({super.key});
 
-class HomePage extends StatelessWidget {
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context){
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Home'),
-      ),
       body: Center(
-        child: Text('This is the Home page'),
+        child: Text(
+          'This is following page'
+        ),
       ),
     );
   }
 }
-class ShopPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Shop'),
-      ),
-      body: Center(
-        child: Text('This is the Shop page'),
-      ),
-    );
-  }
-}
-class CartPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Cart'),
-      ),
-      body: Center(
-        child: Text('This is the Cart page'),
-      ),
-    );
-  }
-}
-
-// class ProfilePage extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(
-//         title: Text('Profile'),
-//       ),
-//       body: Center(
-//         child: Text('This is the Profile page'),
-//       ),
-//     );
-//   }
-// }

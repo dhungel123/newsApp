@@ -1,9 +1,11 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:news_app/core/methods/app_methods.dart';
 import 'package:news_app/feature/profile/presentation/widgets/image_picker_widget.dart';
+
+import '../../../config/util/app_colors/app_colors.dart';
+import '../../maps/maps_page.dart';
 
 class ProfilePage extends StatefulWidget {
   final String name;
@@ -70,6 +72,32 @@ class _ProfilePageState extends State<ProfilePage> {
               ),
             ),
           ),
+
+          Card(
+            color: AppColors.backgroundColor,
+            child: Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                children: [
+                  Row(
+                    children: [
+                      IconButton(onPressed: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => MapsPage()));
+                      }, icon: Icon(Icons.map)),
+                      Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text('Go to Maps', style: TextStyle(fontSize: 20.0)),
+                          ]
+                          )
+
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ),
+
         ],
       ),
     );
