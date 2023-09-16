@@ -17,7 +17,6 @@ class _NewsPageState extends State<NewsPage> {
   @override
   void initState() {
     super.initState();
-
   }
   NetworkRequest network= NetworkRequest();
 

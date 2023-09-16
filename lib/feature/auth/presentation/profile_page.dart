@@ -1,16 +1,17 @@
 
+
 import 'package:flutter/material.dart';
 
 class ProfilePage extends StatelessWidget{
-  final String name;
-  final String email;
-  final String photoUrl;
+  final String? name;
+  final String? email;
+  final String? photoUrl;
 
 
   const ProfilePage({super.key,
-  required this.name,
-  required this.email,
-  required this.photoUrl
+   this.name,
+   this.email,
+   this.photoUrl
   });
 
   @override
@@ -19,16 +20,16 @@ class ProfilePage extends StatelessWidget{
       body: ListView(
         children: [
           CircleAvatar(
-            backgroundImage: NetworkImage(photoUrl),
+            backgroundImage: NetworkImage(photoUrl!),
           ),
 
           SizedBox(height: 12,),
 
           Column(
             children: [
-              Text(name,),
+              Text(name!),
 
-              Text(email),
+              Text(email!),
             ],
           )
         ],

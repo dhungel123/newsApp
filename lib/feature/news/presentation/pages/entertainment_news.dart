@@ -1,9 +1,10 @@
 
 import 'package:flutter/material.dart';
-import 'package:news_app/config/network/network_request.dart';
-import 'package:news_app/feature/news/data/news_model.dart';
-import 'package:news_app/feature/news/presentation/news_details.dart';
-import 'package:news_app/feature/news/presentation/widgets/news_card.dart';
+
+import '../../../../config/network/network_request.dart';
+import '../../data/news_model.dart';
+import '../news_details.dart';
+import '../widgets/news_card.dart';
 
 
 class EntertainmentNews extends StatefulWidget {
