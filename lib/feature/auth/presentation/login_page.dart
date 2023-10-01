@@ -26,24 +26,33 @@ class _LoginPageState extends State<LoginPage> {
           const SizedBox(
             height: 12,
           ),
-          Center(
-            child: ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.black
-              ),
-                  onPressed: () {  },
-                  child: Row(
-                    children: [
-                      IconButton(
-                          onPressed: (){
-                            LoginController.goToGoogleLogin(context);
-                          }, icon:const Icon(FlutterIcons.google_ant,size: 32,)
-                      ),
-                      const Text("continue with Google",style: TextStyle(color: Colors.white,fontSize: 18),)
-                    ],
+          Positioned(
+            bottom: 300,
+            left: 50,
+            child: Center(
+              child: SizedBox(
+                width: 300,
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.black
                   ),
-                ),
-          )
+                      onPressed: () {  },
+                      child: Row(
+                        children: [
+                          IconButton(
+                              onPressed: (){
+                                LoginController.goToGoogleLogin(context);
+                              },
+                              icon:const Icon(FlutterIcons.google_ant,size: 28,)
+                          ),
+                          const Text(" Sign up with Google",style: TextStyle(color: Colors.white,fontSize: 18),)
+                        ],
+                      ),
+                    ),
+              ),
+            ),
+          ),
+          //Text('or',style: TextStyle(color: Colors.black),)
         ],
       ),
     );

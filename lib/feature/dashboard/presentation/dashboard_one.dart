@@ -1,19 +1,25 @@
 
+import 'dart:ffi';
+
+import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:news_app/config/notifications/handle_notifications.dart';
 import 'package:news_app/feature/auth/domain/login_controller.dart';
 import 'package:news_app/feature/news/presentation/all_news_page.dart';
 import 'package:news_app/feature/profile/presentation/profile_page.dart';
 
 import '../../auth/presentation/profile_page.dart';
 import '../../news/presentation/Bloc/internet_cubit/internet_cubit.dart';
+import 'favorites_page.dart';
 
 
 
 
 class DashboardOne extends StatefulWidget {
-  const DashboardOne({super.key });
+   const DashboardOne({super.key});
+ // final GoogleSignInAccount? value;
 
 
 
@@ -24,32 +30,41 @@ class DashboardOne extends StatefulWidget {
 }
 
 class _DashboardState extends State<DashboardOne> {
-  DashboardOne obj= const DashboardOne();
 
-  LoginController controller = LoginController();
+  HandleNotifications notifications= HandleNotifications();
+  @override
+  void initState() {
+    // TODO: implement initState
+
+
+  }
+ // DashboardOne obj= const DashboardOne();
 
 
   int _currentIndex = 0;
-
   final List<Widget> _pages = [
 
     AllNewsPage(),
-   // LoginController(name: , photo: photo, email: email)
+    // LoginController(name: , photo: photo, email: email)
 
 
 
-    // FollowingPage(),
+    FavoritesPage(),
 
-    // const ProfilePage(name: 'Ujjwal Dhungel', email: 'dhungelujjwal441@gmail.com', photoUrl:'asset/uj.jpeg' )
+    ProfilePage(name: 'Ujjwal Dhungel', email: 'dhungelujjwal441@gmail.com', photo: 'https://th.bing.com/th/id/R.b524099e42cd3cb3847d439e6e8b158f?rik=%2bHqdYeZu2%2f5tOQ&pid=ImgRaw&r=0',)
+
+
+
+
 
   ];
 
 
+
   @override
   Widget build(BuildContext context) {
-
-
     return Scaffold(
+
       // appBar: AppBar(title: Text(titles[_currentIndex]),),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
@@ -58,6 +73,10 @@ class _DashboardState extends State<DashboardOne> {
           BottomNavigationBarItem(
             icon: Icon(Icons.newspaper),
             label: 'Headlines',
+          ),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.favorite),
+            label:'Favourite',
           ),
 
           BottomNavigationBarItem(
@@ -74,24 +93,24 @@ class _DashboardState extends State<DashboardOne> {
           });
         },
       ),
-      body:
-        _pages[_currentIndex],
+      body: _pages[_currentIndex],
+
 
 
     );
+
+
+
+
+    }
+
+
   }
-}
+
+
+
+
+
 //
 //
-// class FollowingPage extends StatelessWidget{
-//   const FollowingPage({super.key});
-//
-//   @override
-//   Widget build(BuildContext context){
-//     return const Scaffold(
-//       body: Center(
-//         child: Text('follwong')
-//       ),
-//     );
-//   }
-// }
+

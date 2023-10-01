@@ -1,39 +1,64 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+import 'package:news_app/feature/maps/maps_page.dart';
 
 class ProfilePage extends StatelessWidget{
-  final String? name;
-  final String? email;
-  final String? photoUrl;
+
+
+final String name;
+final String email;
+final String photo;
 
 
   const ProfilePage({super.key,
-   this.name,
-   this.email,
-   this.photoUrl
+     required this.name, required this.email, required this.photo
   });
 
   @override
   Widget build(BuildContext context){
+   // print('check gareko value ma ako cha ki chaina ${value?.email ?? ''}');
     return Scaffold(
-      body: ListView(
-        children: [
-          CircleAvatar(
-            backgroundImage: NetworkImage(photoUrl!),
-          ),
 
-          SizedBox(height: 12,),
+      body:Padding(
+        padding: const EdgeInsets.only(top: 24),
+        child: Card(
+          child:ListTile(
+            dense: false,
+            contentPadding: EdgeInsets.all(20),
+            leading:CircleAvatar(
+              radius: 32,
+              backgroundImage: NetworkImage(photo),
 
-          Column(
+            ),
+            trailing: Column(
             children: [
-              Text(name!),
 
-              Text(email!),
-            ],
-          )
-        ],
-      ),
+
+            SizedBox(height: 12,),
+
+
+
+
+
+
+          Text(name,style: TextStyle(fontWeight: FontWeight.bold,fontSize: 12),),
+
+
+              Text(email),
+
+          ],
+        ),
+
+
+             //   MapsPage()
+
+
+    )
+    ),
+      )
     );
+
   }
 }

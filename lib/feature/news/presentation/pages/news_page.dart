@@ -36,7 +36,6 @@ class _NewsPageState extends State<NewsPage> {
               future:network.getTopNews(),
               // in shapshort we get the data what we passed in the FutureBuilder
               builder: (context,snapshot){
-
                 if(snapshot.hasData){
                   return ListView.builder(
                     shrinkWrap: true,

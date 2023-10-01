@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:news_app/config/notifications/handle_notifications.dart';
 import 'package:news_app/feature/auth/presentation/login_page.dart';
 import 'package:news_app/feature/dashboard/presentation/dashboard_one.dart';
 
@@ -13,12 +14,16 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+  HandleNotifications notifications = HandleNotifications();
   @override
+
   void initState() {
+
     Timer(const Duration(seconds: 2), () {
       Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>const LoginPage()));
 
     });
+
     super.initState();
   }
   @override

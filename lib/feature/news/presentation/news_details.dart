@@ -20,10 +20,20 @@ class NewsDetails extends StatelessWidget {
         title: Text(news?.title ?? '',
         maxLines: 2,
         overflow: TextOverflow.ellipsis,
-        style: TextStyle(fontSize:16.0,color: Colors.white),),),
+        style: TextStyle(fontWeight: FontWeight.bold,fontSize:20.0,color: Colors.white),),),
       body: ListView(
         children: [
           NewsCard(news: news,fromNewsDetails: true,),
+          SizedBox(
+            width: 200,
+            child: ElevatedButton(onPressed: (){}, child:Row(
+              children: [
+                IconButton(onPressed: (){}, icon: Icon(Icons.star)),
+                const Text('Add to Favorites')
+              ],
+            )),
+          ),
+
 
           Padding(
             padding: const EdgeInsets.all(16.0),

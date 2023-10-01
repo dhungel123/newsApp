@@ -15,14 +15,11 @@ import 'package:news_app/feature/profile/presentation/widgets/image_picker_widge
 
 import '../../../config/util/app_colors/app_colors.dart';
 import '../../maps/maps_page.dart';
-class LoginController{
-  // LoginController({required this.name,required this.photo, required this.email});
-  // final String name;
-  // final String photo;
-  // final String email;
+class LoginController extends StatefulWidget{
+  // LoginController({required this.values});
+  // final GoogleSignInAccount values;
 
-
-   static Future goToGoogleLogin(BuildContext context) async {
+  static Future goToGoogleLogin(BuildContext context) async {
 
      try{
        var googleSignIn = GoogleSignIn().signIn();
@@ -48,20 +45,22 @@ class LoginController{
        print("Email:  ${value?.email ?? ''}");
        print("Display Name:  ${value?.displayName ?? ''}");
        print("PhotoUrl:  ${value?.photoUrl ?? ''}");
-       print("AccessToken:  ${accessToken ?? ''}");
+       //print("AccessToken:  ${accessToken ?? ''}");
 
       // Future.delayed(Duration(seconds: 2));
 
        if(accessToken!=null){
+
+
          Navigator.push(context,
              MaterialPageRoute(
                  builder: (context)=> DashboardOne()
              )
          );
        }
-       void callingFunction(){
-         ProfilePage(name: value?.displayName, email: value?.email, photoUrl: value?.photoUrl);
-       }
+
+
+
        //ProfilePage(gmailName: name,gmailPhoto: photo,);
 
 
@@ -86,6 +85,13 @@ class LoginController{
       print("Login failed");
     }
     }
+
+  @override
+  State<StatefulWidget> createState() {
+
+    // TODO: implement createState
+    throw UnimplementedError();
+  }
 }
 
 

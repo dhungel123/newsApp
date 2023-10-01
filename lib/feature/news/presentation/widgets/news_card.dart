@@ -39,7 +39,7 @@ class NewsCard extends StatelessWidget {
           CachedNetworkImage(
               imageUrl: news?.urlToImage ?? '',
             placeholder: (context,url)=>CircularProgressIndicator(),
-            errorWidget: (context,url,error)=>Icon(Icons.error),
+            errorWidget: (context,url,error)=>Image.network('https://th.bing.com/th/id/R.8843c74000ce47d12f6042838ac8f5fe?rik=GdMUWuNvamBNOg&pid=ImgRaw&r=0'),
           ),
 
          // Image.network(news?.urlToImage ?? ''),
@@ -59,13 +59,13 @@ class NewsCard extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Container(
-                  height: 50,
-                  width: 50,
+                SizedBox(
+
+                  width: 100,
                   child: Text("${news?.author}",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold),
-                    overflow: TextOverflow.fade,),
+                    ),
                 ),
-                Text("${DateTimeFormated.convertDateTime(news?.publishedAt ?? '')}",
+                Text("${DateTimeFormatted.convertDateTime(news?.publishedAt ?? '')}",
                   style: TextStyle(color: Colors.black),
                 overflow: TextOverflow.ellipsis,)
               ],
